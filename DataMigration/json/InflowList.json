@@ -1,0 +1,1393 @@
+{
+    "CompletedWithoutError": true,
+    "Results": [
+        {
+            "DomainKey": "MigrationTesting",
+            "InflowDef": {
+                "Name": "kahua_Contract.ContractsIn",
+                "Description": "Create and update expense contracts.  This provides for inflow of contract, contract item, and subsidiary contract items under contract items.  Statuses should be passed in with the status name string.  Workbreakdown items should be passed in as their codes.",
+                "TransactionScope": "Default",
+                "Operations": [
+                    {
+                        "Source": "ContractItems",
+                        "EntityDef": "kahua_Contract.Contract",
+                        "MatchExistingBy": "Attribute",
+                        "MatchExistingPolicy": "Default",
+                        "ExistingSourceAttribute": "Number",
+                        "ExistingTargetAttribute": "Number",
+                        "UpdateIfExisting": false,
+                        "DisableEntityCache": false,
+                        "DataSource": "",
+                        "DataSourceAttributeName": "",
+                        "DataSourceParameter": "",
+                        "DataSourceAttributeResolutionScript": {
+                            "ScriptName": ""
+                        },
+                        "ParentAttribute": "",
+                        "ChildAttribute": "",
+                        "KeyAttribute": "",
+                        "ParentKeyAttribute": "",
+                        "TargetAttributes": [
+                            {
+                                "Name": "Status",
+                                "SourceAttribute": "Status",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Status",
+                                "EntityDefAttributeDescription": "Item Status",
+                                "ResolvementType": "Script",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": "kahua_Cost.ResolveCostItemStatusByName",
+                                    "Parameters": [
+                                        {
+                                            "Name": "AppName",
+                                            "Value": "kahua_Contract"
+                                        },
+                                        {
+                                            "Name": "EntityDefName",
+                                            "Value": "kahua_Contract.Contract"
+                                        }
+                                    ]
+                                },
+                                "Source": "",
+                                "Notes": "Status string provided is resolved to matching contract status",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "OutwardReferences",
+                                "SourceAttribute": "OutwardReferences",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Outward References",
+                                "EntityDefAttributeDescription": "Outward References",
+                                "ResolvementType": "References",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Items",
+                                "SourceAttribute": "Items",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Items",
+                                "EntityDefAttributeDescription": "Items",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ClientContact",
+                                "SourceAttribute": "ClientContact",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Client Contact",
+                                "EntityDefAttributeDescription": "[AttributeClientContactDescription]",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ClientCompany",
+                                "SourceAttribute": "ClientCompany",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Client Company",
+                                "EntityDefAttributeDescription": "Client Company",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ClientCompanyLocation",
+                                "SourceAttribute": "ClientCompanyLocation",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Client Company Location",
+                                "EntityDefAttributeDescription": "[AttributeClientCompanyLocationDescription]",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ClientCompanyOffice",
+                                "SourceAttribute": "ClientCompanyOffice",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Client Office",
+                                "EntityDefAttributeDescription": "Client Office",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ContractorContact",
+                                "SourceAttribute": "ContractorContact",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Contractor Contact",
+                                "EntityDefAttributeDescription": "[AttributeContractorContactDescription]",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ContractorCompany",
+                                "SourceAttribute": "ContractorCompany",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Contractor",
+                                "EntityDefAttributeDescription": "[AttributeContractorCompanyDescription]",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ContractorCompanyLocation",
+                                "SourceAttribute": "ContractorCompanyLocation",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Contractor Location",
+                                "EntityDefAttributeDescription": "Contractor Location",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ContractorCompanyOffice",
+                                "SourceAttribute": "ContractorCompanyOffice",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Contractor Office",
+                                "EntityDefAttributeDescription": "Contractor Office",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Date",
+                                "SourceAttribute": "Date",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Date",
+                                "EntityDefAttributeDescription": "[AttributeDateDescription]",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "GeneralProvisions",
+                                "SourceAttribute": "GeneralProvisions",
+                                "DataType": "UnlimitedText",
+                                "EntityDefAttributeLabel": "General Provisions",
+                                "EntityDefAttributeDescription": "[AttributeGeneralProvisionsDescription]",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "NotToExceedAmount",
+                                "SourceAttribute": "NotToExceedAmount",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Not To Exceed Amount",
+                                "EntityDefAttributeDescription": "[AttributeNotToExceedAmountDescription]",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "NumberOfPages",
+                                "SourceAttribute": "NumberOfPages",
+                                "DataType": "Integer",
+                                "EntityDefAttributeLabel": "Number of Pages",
+                                "EntityDefAttributeDescription": "[AttributeNumberOfPagesDescription]",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScopeOfWork",
+                                "SourceAttribute": "ScopeOfWork",
+                                "DataType": "Text",
+                                "EntityDefAttributeLabel": "Scope of Work",
+                                "EntityDefAttributeDescription": "Scope of Work",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "StoredMaterialRetainageRate",
+                                "SourceAttribute": "StoredMaterialRetainageRate",
+                                "DataType": "Number",
+                                "EntityDefAttributeLabel": "Stored Material Retainage Rate",
+                                "EntityDefAttributeDescription": "Stored Material Retainage Rate",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Type",
+                                "SourceAttribute": "Type",
+                                "DataType": "Lookup",
+                                "EntityDefAttributeLabel": "Commitment Type",
+                                "EntityDefAttributeDescription": "Item Type",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "WorkRetainageRate",
+                                "SourceAttribute": "WorkRetainageRate",
+                                "DataType": "Number",
+                                "EntityDefAttributeLabel": "Work Retainage Rate",
+                                "EntityDefAttributeDescription": "Work Retainage Rate",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CalculationTemplate",
+                                "SourceAttribute": "CalculationTemplate",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Calculation Template",
+                                "EntityDefAttributeDescription": "[AttributeCalculationTemplateDescription]",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Markups",
+                                "SourceAttribute": "Markups",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Markups",
+                                "EntityDefAttributeDescription": "Markups",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Notes",
+                                "SourceAttribute": "Notes",
+                                "DataType": "UnlimitedText",
+                                "EntityDefAttributeLabel": "Notes",
+                                "EntityDefAttributeDescription": "Notes",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Number",
+                                "SourceAttribute": "Number",
+                                "DataType": "AutoNumber",
+                                "EntityDefAttributeLabel": "Number",
+                                "EntityDefAttributeDescription": "Number",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScheduleEnd",
+                                "SourceAttribute": "ScheduleEnd",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule End Date",
+                                "EntityDefAttributeDescription": "Schedule End Date",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScheduleOnSite",
+                                "SourceAttribute": "ScheduleOnSite",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule On Site Date",
+                                "EntityDefAttributeDescription": "Schedule On Site Date",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "SchedulePurchaseBy",
+                                "SourceAttribute": "SchedulePurchaseBy",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule Purchase By Date",
+                                "EntityDefAttributeDescription": "Schedule Purchase By",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScheduleStart",
+                                "SourceAttribute": "ScheduleStart",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule Start Date",
+                                "EntityDefAttributeDescription": "Schedule Start Date",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "SummaryGroups",
+                                "SourceAttribute": "SummaryGroups",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "SUMMARY GROUPS",
+                                "EntityDefAttributeDescription": "Summary Groups",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Description",
+                                "SourceAttribute": "Description",
+                                "DataType": "Text",
+                                "EntityDefAttributeLabel": "Description",
+                                "EntityDefAttributeDescription": "Item Description",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            }
+                        ],
+                        "OperationType": "Transform",
+                        "Description": "Contract document data",
+                        "OperationTransactionScope": "Default",
+                        "WorkingSet": "ContractItems"
+                    },
+                    {
+                        "Source": "ContractItemsItems",
+                        "EntityDef": "kahua_Contract.ContractItem",
+                        "MatchExistingBy": "Attribute",
+                        "MatchExistingPolicy": "Default",
+                        "ExistingSourceAttribute": "Number",
+                        "ExistingTargetAttribute": "Number",
+                        "UpdateIfExisting": true,
+                        "DisableEntityCache": false,
+                        "DataSource": "",
+                        "DataSourceAttributeName": "",
+                        "DataSourceParameter": "",
+                        "DataSourceAttributeResolutionScript": {
+                            "ScriptName": ""
+                        },
+                        "ParentAttribute": "Items",
+                        "ChildAttribute": "",
+                        "KeyAttribute": "",
+                        "ParentKeyAttribute": "",
+                        "TargetAttributes": [
+                            {
+                                "Name": "WorkBreakdownItem",
+                                "SourceAttribute": "WorkBreakdownItem",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Work Breakdown Item",
+                                "EntityDefAttributeDescription": "Work Breakdown Item",
+                                "ResolvementType": "DataSource",
+                                "DataSource": "kahua_WorkBreakdown.LookupByCode",
+                                "DataSourceParameter": "Code",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "Workbreakdown string provided is resolved to Kahua workbreakdown item reference",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Status",
+                                "SourceAttribute": "Status",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Status",
+                                "EntityDefAttributeDescription": "Item Status",
+                                "ResolvementType": "Script",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": "kahua_Cost.ResolveCostItemStatusByName",
+                                    "Parameters": [
+                                        {
+                                            "Name": "AppName",
+                                            "Value": "kahua_Contract"
+                                        },
+                                        {
+                                            "Name": "EntityDefName",
+                                            "Value": "kahua_Contract.ContractItem"
+                                        }
+                                    ]
+                                },
+                                "Source": "",
+                                "Notes": "Status string provided is resolved to matching contract item status",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Items",
+                                "SourceAttribute": "Items",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Items",
+                                "EntityDefAttributeDescription": "Items",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Description",
+                                "SourceAttribute": "Description",
+                                "DataType": "Text",
+                                "EntityDefAttributeLabel": "Description",
+                                "EntityDefAttributeDescription": "Item Description",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScopeOfWork",
+                                "SourceAttribute": "ScopeOfWork",
+                                "DataType": "RichText",
+                                "EntityDefAttributeLabel": "Scope of Work",
+                                "EntityDefAttributeDescription": "Scope of Work",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostEstimatedQuantity",
+                                "SourceAttribute": "CostEstimatedQuantity",
+                                "DataType": "Number",
+                                "EntityDefAttributeLabel": "Cost Estimated - Quantity",
+                                "EntityDefAttributeDescription": "Estimated amount for Expense Contract - Quantity",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostEstimatedTotalValue",
+                                "SourceAttribute": "CostEstimatedTotalValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Estimated - Total Value",
+                                "EntityDefAttributeDescription": "Estimated amount for Expense Contract - Total Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostEstimatedUnitOfMeasurement",
+                                "SourceAttribute": "CostEstimatedUnitOfMeasurement",
+                                "DataType": "Lookup",
+                                "EntityDefAttributeLabel": "Cost Estimated - UOM",
+                                "EntityDefAttributeDescription": "Estimated amount for Expense Contract - Unit of Measurement",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostEstimatedUnitValue",
+                                "SourceAttribute": "CostEstimatedUnitValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Estimated - Unit Value",
+                                "EntityDefAttributeDescription": "Estimated amount for Expense Contract - Unit Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostOriginalQuantity",
+                                "SourceAttribute": "CostOriginalQuantity",
+                                "DataType": "Number",
+                                "EntityDefAttributeLabel": "Cost Original - Quantity",
+                                "EntityDefAttributeDescription": "Approved amount for Expense Contract - Quantity",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostOriginalTotalValue",
+                                "SourceAttribute": "CostOriginalTotalValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Original - Total Value",
+                                "EntityDefAttributeDescription": "Approved amount for Expense Contract - Total Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostOriginalUnitOfMeasurement",
+                                "SourceAttribute": "CostOriginalUnitOfMeasurement",
+                                "DataType": "Lookup",
+                                "EntityDefAttributeLabel": "Cost Original - UOM",
+                                "EntityDefAttributeDescription": "Approved amount for Expense Contract - Unit of Measurement",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostOriginalUnitValue",
+                                "SourceAttribute": "CostOriginalUnitValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Original - Unit Value",
+                                "EntityDefAttributeDescription": "Approved amount for Expense Contract - Unit Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostPendingCommitmentsQuantity",
+                                "SourceAttribute": "CostPendingCommitmentsQuantity",
+                                "DataType": "Number",
+                                "EntityDefAttributeLabel": "Cost Pending Commitments - Quantity",
+                                "EntityDefAttributeDescription": "Pending amount for Expense Contract - Quantity",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostPendingCommitmentsTotalValue",
+                                "SourceAttribute": "CostPendingCommitmentsTotalValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Pending Commitments - Total Value",
+                                "EntityDefAttributeDescription": "Pending amount for Expense Contract - Total Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostPendingCommitmentsUnitOfMeasurement",
+                                "SourceAttribute": "CostPendingCommitmentsUnitOfMeasurement",
+                                "DataType": "Lookup",
+                                "EntityDefAttributeLabel": "Cost Pending Commitments - UOM",
+                                "EntityDefAttributeDescription": "Pending amount for Expense Contract - Unit of Measurement",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostPendingCommitmentsUnitValue",
+                                "SourceAttribute": "CostPendingCommitmentsUnitValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Pending Commitments - Unit Value",
+                                "EntityDefAttributeDescription": "Pending amount for Expense Contract - Unit Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Markups",
+                                "SourceAttribute": "Markups",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Markups",
+                                "EntityDefAttributeDescription": "Markups",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Notes",
+                                "SourceAttribute": "Notes",
+                                "DataType": "UnlimitedText",
+                                "EntityDefAttributeLabel": "Notes",
+                                "EntityDefAttributeDescription": "Notes",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Number",
+                                "SourceAttribute": "Number",
+                                "DataType": "AutoNumber",
+                                "EntityDefAttributeLabel": "Number",
+                                "EntityDefAttributeDescription": "Number",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "AccountingStartedOn",
+                                "SourceAttribute": "AccountingStartedOn",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Accounting Started On",
+                                "EntityDefAttributeDescription": "Accounting Started On",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "AccountingCompletedOn",
+                                "SourceAttribute": "AccountCompletedOn",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Accounting Completed On",
+                                "EntityDefAttributeDescription": "Accounting Completed On",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScheduleEnd",
+                                "SourceAttribute": "ScheduleEnd",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule End Date",
+                                "EntityDefAttributeDescription": "Schedule End Date",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScheduleOnSite",
+                                "SourceAttribute": "ScheduleOnSite",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule On Site Date",
+                                "EntityDefAttributeDescription": "Schedule On Site Date",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "SchedulePurchaseBy",
+                                "SourceAttribute": "SchedulePurchaseBy",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule Purchase By Date",
+                                "EntityDefAttributeDescription": "Schedule Purchase By",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScheduleStart",
+                                "SourceAttribute": "ScheduleStart",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule Start Date",
+                                "EntityDefAttributeDescription": "Schedule Start Date",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            }
+                        ],
+                        "OperationType": "Transform",
+                        "Description": "Contract item data",
+                        "OperationTransactionScope": "Default",
+                        "WorkingSet": "ContractItems"
+                    },
+                    {
+                        "Source": "ContractItemsItemsItems",
+                        "EntityDef": "kahua_Contract.ContractItem",
+                        "MatchExistingBy": "Attribute",
+                        "MatchExistingPolicy": "Default",
+                        "ExistingSourceAttribute": "Number",
+                        "ExistingTargetAttribute": "Number",
+                        "UpdateIfExisting": true,
+                        "DisableEntityCache": false,
+                        "DataSource": "",
+                        "DataSourceAttributeName": "",
+                        "DataSourceParameter": "",
+                        "DataSourceAttributeResolutionScript": {
+                            "ScriptName": ""
+                        },
+                        "ParentAttribute": "Items",
+                        "ChildAttribute": "",
+                        "KeyAttribute": "",
+                        "ParentKeyAttribute": "",
+                        "TargetAttributes": [
+                            {
+                                "Name": "WorkBreakdownItem",
+                                "SourceAttribute": "WorkBreakdownItem",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Work Breakdown Item",
+                                "EntityDefAttributeDescription": "Work Breakdown Item",
+                                "ResolvementType": "DataSource",
+                                "DataSource": "kahua_WorkBreakdown.LookupByCode",
+                                "DataSourceParameter": "Code",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "Workbreakdown string provided is resolved to Kahua workbreakdown item reference",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Status",
+                                "SourceAttribute": "Status",
+                                "DataType": "Entity",
+                                "EntityDefAttributeLabel": "Status",
+                                "EntityDefAttributeDescription": "Item Status",
+                                "ResolvementType": "Script",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": "kahua_Cost.ResolveCostItemStatusByName",
+                                    "Parameters": [
+                                        {
+                                            "Name": "AppName",
+                                            "Value": "kahua_Contract"
+                                        },
+                                        {
+                                            "Name": "EntityDefName",
+                                            "Value": "kahua_Contract.ContractItem"
+                                        }
+                                    ]
+                                },
+                                "Source": "",
+                                "Notes": "Status string provided is resolved to matching contract item status",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Description",
+                                "SourceAttribute": "Description",
+                                "DataType": "Text",
+                                "EntityDefAttributeLabel": "Description",
+                                "EntityDefAttributeDescription": "Item Description",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScopeOfWork",
+                                "SourceAttribute": "ScopeOfWork",
+                                "DataType": "RichText",
+                                "EntityDefAttributeLabel": "Scope of Work",
+                                "EntityDefAttributeDescription": "Scope of Work",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostEstimatedQuantity",
+                                "SourceAttribute": "CostEstimatedQuantity",
+                                "DataType": "Number",
+                                "EntityDefAttributeLabel": "Cost Estimated - Quantity",
+                                "EntityDefAttributeDescription": "Estimated amount for Expense Contract - Quantity",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostEstimatedTotalValue",
+                                "SourceAttribute": "CostEstimatedTotalValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Estimated - Total Value",
+                                "EntityDefAttributeDescription": "Estimated amount for Expense Contract - Total Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostEstimatedUnitOfMeasurement",
+                                "SourceAttribute": "CostEstimatedUnitOfMeasurement",
+                                "DataType": "Lookup",
+                                "EntityDefAttributeLabel": "Cost Estimated - UOM",
+                                "EntityDefAttributeDescription": "Estimated amount for Expense Contract - Unit of Measurement",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostEstimatedUnitValue",
+                                "SourceAttribute": "CostEstimatedUnitValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Estimated - Unit Value",
+                                "EntityDefAttributeDescription": "Estimated amount for Expense Contract - Unit Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostOriginalQuantity",
+                                "SourceAttribute": "CostOriginalQuantity",
+                                "DataType": "Number",
+                                "EntityDefAttributeLabel": "Cost Original - Quantity",
+                                "EntityDefAttributeDescription": "Approved amount for Expense Contract - Quantity",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostOriginalTotalValue",
+                                "SourceAttribute": "CostOriginalTotalValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Original - Total Value",
+                                "EntityDefAttributeDescription": "Approved amount for Expense Contract - Total Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostOriginalUnitOfMeasurement",
+                                "SourceAttribute": "CostOriginalUnitOfMeasurement",
+                                "DataType": "Lookup",
+                                "EntityDefAttributeLabel": "Cost Original - UOM",
+                                "EntityDefAttributeDescription": "Approved amount for Expense Contract - Unit of Measurement",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostOriginalUnitValue",
+                                "SourceAttribute": "CostOriginalUnitValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Original - Unit Value",
+                                "EntityDefAttributeDescription": "Approved amount for Expense Contract - Unit Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostPendingCommitmentsQuantity",
+                                "SourceAttribute": "CostPendingCommitmentsQuantity",
+                                "DataType": "Number",
+                                "EntityDefAttributeLabel": "Cost Pending Commitments - Quantity",
+                                "EntityDefAttributeDescription": "Pending amount for Expense Contract - Quantity",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostPendingCommitmentsTotalValue",
+                                "SourceAttribute": "CostPendingCommitmentsTotalValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Pending Commitments - Total Value",
+                                "EntityDefAttributeDescription": "Pending amount for Expense Contract - Total Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostPendingCommitmentsUnitOfMeasurement",
+                                "SourceAttribute": "CostPendingCommitmentsUnitOfMeasurement",
+                                "DataType": "Lookup",
+                                "EntityDefAttributeLabel": "Cost Pending Commitments - UOM",
+                                "EntityDefAttributeDescription": "Pending amount for Expense Contract - Unit of Measurement",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "CostPendingCommitmentsUnitValue",
+                                "SourceAttribute": "CostPendingCommitmentsUnitValue",
+                                "DataType": "Currency",
+                                "EntityDefAttributeLabel": "Cost Pending Commitments - Unit Value",
+                                "EntityDefAttributeDescription": "Pending amount for Expense Contract - Unit Value",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Notes",
+                                "SourceAttribute": "Notes",
+                                "DataType": "UnlimitedText",
+                                "EntityDefAttributeLabel": "Notes",
+                                "EntityDefAttributeDescription": "Notes",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "Number",
+                                "SourceAttribute": "Number",
+                                "DataType": "AutoNumber",
+                                "EntityDefAttributeLabel": "Number",
+                                "EntityDefAttributeDescription": "Number",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "AccountingStartedOn",
+                                "SourceAttribute": "AccountingStartedOn",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Accounting Started On",
+                                "EntityDefAttributeDescription": "Accounting Started On",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "AccountingCompletedOn",
+                                "SourceAttribute": "AccountCompletedOn",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Accounting Completed On",
+                                "EntityDefAttributeDescription": "Accounting Completed On",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScheduleEnd",
+                                "SourceAttribute": "ScheduleEnd",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule End Date",
+                                "EntityDefAttributeDescription": "Schedule End Date",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScheduleOnSite",
+                                "SourceAttribute": "ScheduleOnSite",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule On Site Date",
+                                "EntityDefAttributeDescription": "Schedule On Site Date",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "SchedulePurchaseBy",
+                                "SourceAttribute": "SchedulePurchaseBy",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule Purchase By Date",
+                                "EntityDefAttributeDescription": "Schedule Purchase By",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            },
+                            {
+                                "Name": "ScheduleStart",
+                                "SourceAttribute": "ScheduleStart",
+                                "DataType": "Date",
+                                "EntityDefAttributeLabel": "Schedule Start Date",
+                                "EntityDefAttributeDescription": "Schedule Start Date",
+                                "ResolvementType": "Default",
+                                "DataSource": "",
+                                "DataSourceParameter": "",
+                                "PlatformScript": {
+                                    "ScriptName": ""
+                                },
+                                "Source": "",
+                                "Notes": "",
+                                "WorkingSet": ""
+                            }
+                        ],
+                        "OperationType": "Transform",
+                        "Description": "Contract item sub-item data",
+                        "OperationTransactionScope": "Default",
+                        "WorkingSet": "ContractItems"
+                    },
+                    {
+                        "OperationType": "Save",
+                        "Description": "Defines save operation for inflow",
+                        "OperationTransactionScope": "Default",
+                        "WorkingSet": "ContractItems"
+                    }
+                ]
+            }
+        }
+    ]
+}
