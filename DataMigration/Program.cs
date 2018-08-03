@@ -25,31 +25,6 @@ namespace DataMigration
         [STAThread]
         static void Main()
         {
-            using (var unity = new UnityContainer())
-            {
-                unity.RegisterInstance(Log4NetLoggerFactory.CreateLoggerFactory());
-                unity.RegisterSingleton<IHttpAuthorization, BasicAuthorization>();
-                unity.RegisterSingleton<IServiceClientRequestOptions, JsonServiceClientRequestOptions>();
-                unity.RegisterSingleton<IServiceClient, WebServiceClient>();
-                unity.RegisterSingleton<IKahuaApiClient, KahuaApiClient>();
-
-
-
-
-                unity.RegisterSingleton<IKahuaDataMigrator, KahuaDataMigrator>();
-                unity.RegisterSingleton<INameSearcher, NameSearcher>();
-                unity.RegisterSingleton<IKahuaDataTypeConverter, KahuaDataTypeConverter>();
-                unity.RegisterSingleton<IKahuaDataMigratorService, KahuaDataMigratorService>();
-                unity.RegisterSingleton<IInflowRepository, ExcelRepository>();
-                unity.RegisterSingleton<IModelRepository<KahuaDataMigrationModel>, JsonFileModelRepository<KahuaDataMigrationModel>>();
-
-
-                unity.RegisterSingleton<IModelRepository<KahuaReponse<KahuaInflowDef>>, JsonFileModelRepository<KahuaReponse<KahuaInflowDef>>>();
-                unity.RegisterSingleton<IModelRepository<IEnumerable<KahuaDomain>>, JsonFileModelRepository<IEnumerable<KahuaDomain>>>();
-
-
-            }
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormSettings());

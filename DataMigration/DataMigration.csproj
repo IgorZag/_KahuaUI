@@ -203,8 +203,10 @@
       <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="jsonModelTmp.cs" />
+    <Compile Include="LoggingService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnityFactory.cs" />
     <EmbeddedResource Include="FormMapping.resx">
       <DependentUpon>FormMapping.cs</DependentUpon>
     </EmbeddedResource>

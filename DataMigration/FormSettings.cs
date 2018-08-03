@@ -63,10 +63,7 @@ namespace DataMigration
         private void button2_Click(object sender, EventArgs e)
         {
 
-            using (var unity = new UnityContainer())
-            {
-                var client = unity.Resolve<Kahua.Contracts.IKahuaApiClient>();
-            }
+            var client = UnityFactory.Resolve<Kahua.Contracts.IKahuaApiClient>();
         }
     }
 }
